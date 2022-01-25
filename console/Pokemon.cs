@@ -1,32 +1,21 @@
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace console
 {
     public class Pokemon
     {
-        [JsonInclude]
         public long Id { get; set; }
-        [JsonInclude]
         public string Nome { get; set; }
-        [JsonInclude]
         public List<Type> types { get; set; }
-        // public List<Pokemon> Evolutions { get; set; }
+        public List<Pokemon> Evolutions { get; set; }
 
         public Pokemon(long id, string nome, List<Type> types)
         {
             this.Id = id;
             this.Nome = nome;
             this.types = types;
+            this.Evolutions = new List<Pokemon>();
         }
-        // public Pokemon(long id, string nome, List<Type> types, List<Pokemon> evolutions)
-        // {
-        //     this.Id = id;
-        //     this.Nome = nome;
-        //     this.types = types;
-        //     this.Evolutions = evolutions;
-        // }
 
         public override string ToString()
         {
